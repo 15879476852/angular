@@ -1,0 +1,44 @@
+define(["app"],function(app){
+	app.config(["$stateProvider","$urlRouterProvider",
+	function($stateProvider,$urlRouterProvider){
+		$stateProvider.state("index",{
+			url:"/index",
+			templateUrl:"tpls/homepage/index.html",
+			controller:"indexCtrl"
+		}).state("book",{
+			url:"/book/:type",
+			views:{
+				"":{
+					templateUrl:"tpls/book/book.html",
+					controller:"bookCtrl"
+				},
+				"bookType@book":{
+					templateUrl:"tpls/book/bookType.html"
+				},
+				"bookGrid@book":{
+					templateUrl:"tpls/book/bookGrid.html"
+				}
+			}
+		}).state("computer",{
+			url:"/computer",
+			templateUrl:"tpls/computer/computer.html",
+			controller:function($state){
+				$state.go("computer.html5")
+			}
+		}).state("computer.html5",{
+			url:"/html5",
+			template:"<div>html5</div>",
+		}).state("computer.java",{
+			url:"/java",
+			template:"<div>java</div>"
+		}).state("computer.c",{
+			url:"/c",
+			template:"<div>c</div>"
+		}).state("computer.python",{
+			url:"/python",
+			template:"<div>python</div>"
+		})
+
+		$urlRouterProvider.otherwise('/');
+	}])
+})

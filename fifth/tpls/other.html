@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="content">
+			<div class="container my-top">
+			<form class="form-horizontal" name="myForm" ng-submit="submitForm(myForm.$valid)">
+			  <div class="form-group has-success has-feedback">
+			    <label class="control-label col-sm-4" for="inputSuccess3">用户名：</label>
+			    <div class="col-sm-8">
+			      <input type="text" class="form-control" name="name" ng-model="user.name" required>
+			      <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="myForm.name.$valid && myForm.name.$dirty"></span>
+			    </div>
+			  </div>
+			  <div class="form-group has-success has-feedback">
+			    <label class="control-label col-sm-4" for="inputSuccess3">密码：</label>
+			    <div class="col-sm-8">
+			      <input type="text" class="form-control" name="pwd" required ng-model="user.pwd" ng-minLength="6">
+			      <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="myForm.pwd.$valid && myForm.pwd.$dirty"></span>
+			    </div>
+			  </div>
+			  <div class="form-group has-success has-feedback">
+			    <label class="control-label col-sm-4" for="inputSuccess3">密码确认：</label>
+			    <div class="col-sm-8">
+			      <input type="text" class="form-control" name="repwd" required ng-model="user.repwd" ng-minLength="6">
+			      <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="user.pwd == user.repwd && myForm.repwd.$dirty"></span>
+			    </div>
+			  </div>
+			  <div class="form-group has-success has-feedback">
+			    <label class="control-label col-sm-4" for="inputSuccess3">英文名字：</label>
+			    <div class="col-sm-8">
+			      <input type="text" class="form-control" name="en" required ng-model="user.en" ng-pattern="/^[a-zA-Z_]+$/">
+			      <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="myForm.en.$valid && myForm.en.$dirty"></span>
+			    </div>
+			  </div>
+			  <div class="form-group has-success has-feedback">
+			    <label class="control-label col-sm-4" for="inputSuccess3">邮箱：</label>
+			    <div class="col-sm-8">
+			      <input type="email" class="form-control" name="email"  ng-model="user.email">
+			      <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="myForm.email.$valid && myForm.email.$dirty"></span>
+			    </div>
+			  </div>
+			  <button type="submit" class="btn btn-lg btn-primary col-sm-offset-5" ng-disabled="myForm.$invalid">提交</button>
+			</form>  
+		</div>
+		</div>
+	</body>
+</html>

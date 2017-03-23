@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="bodyCtrl">
+		<input type="text" name="" ng-model="name" />
+		<br />
+		<input type="text" name="" ng-model="age" />
+		<br />
+		<div class="is-ok" my-name ={{name}} my-age="age"></div>
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module("myapp",[]);
+	app.controller("bodyCtrl",function($scope){
+		$scope.age = 21;
+		$scope.name = "ccccc";
+	})
+	app.directive("isOk",function(){
+		return{
+			restrict:"EAC",
+			templateUrl:"scope.html",
+			replace:true,
+			transclude:true,
+			controller:function($scope){
+				
+			},
+			scope:{
+				name : "=",
+				age :"@"
+			}
+		}
+	})
+</script>

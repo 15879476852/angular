@@ -1,0 +1,112 @@
+
+<div id="main">
+	<div class="w1100">
+		<div id="mainpush" class="mainpush_box Louti">
+			<h3 class="title"><span>今日头条 </span> <i> TODAY HEADLINES</i></h3>
+			<div class="m_list">
+				<ul>
+					<li ng-repeat="mainpush in mainpushs">
+						<div class='m_list_img'>
+							<a><img src="{{mainpush.src || img/load_wait.gif}}" /></a>
+							<!--{{mainpush.src || img/load_wait.gif}}-->
+						</div>
+						<div class='m_list_cont'>
+							<div class='m_list_ctime' endtime=""></div>
+							<div class='m_list_cname'>
+								<a>
+									<span ng-bind="mainpush.discount"></span>{{mainpush.name}}
+								</a>
+							</div>
+							<div class='m_list_cbuy clearfix'>
+								<p class='mlcb_price'>
+									<i>￥</i>
+									<span ng-bind="mainpush.price"></span>
+									<del>￥{{mainpush.Original_price}}</del>
+								</p>
+								<p class='mlcb_btn'>
+									<a class='put-cart embox'>加入购物车</a>
+								</p>
+							</div>
+							<div class='m_list_ctip'>
+								<p class='mlct_count'>
+									已有<span ng-bind="mainpush.people"></span>人购买
+								</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="recommend_box">
+			<h3 class="title clearfix">
+						<p class="bfd_recom_cont">
+							<span>小知推荐 </span> <i> XIAO ZHI RECOMMEDNED</i>
+						</p>
+							<a href="http://www.baifendian.com/" target="_blank" class="bfd_img_logo" title="百分点推荐引擎"></a>
+					</h3>
+			<div class="r_list">
+				<ul class="recommend_list clearfix">
+					<li ng-repeat="recommend in recommends">
+						<div class='goods_img'>
+							<a href='product.html'><img src="{{recommend.src || img/load_wait}}" /></a>
+						</div>
+						<div class='goods_price'>
+							<p class='pro_name'>
+								<a href='product.html' ng-bind="recommend.name"></a>
+							</p>
+							<p class='now_price'>
+								<i>￥</i>
+								<span class='price_day' ng-bind="recommend.price"></span>
+								<del>￥{{recommend.Original_price}}</del>
+							</p>
+							<p class='buy_btn'>
+								<a class='put-cart'>加入购物车</a>
+							</p>
+						</div>
+					</li>
+				</ul>
+				<div class="rlist_btn rlist_leftbtn">&lt;</div>
+				<div class="rlist_btn rlist_rightbtn">&gt;</div>
+			</div>
+		</div>
+		<div id="newpro" class="Louti">
+			<h3 class="title clearfix">
+						<p><span>今日新品</span><i>HOT DEALS TODAY</i></p>
+					</h3>
+			<ul class="new_list clearfix">
+				<li ng-repeat="newpro in newpros">
+					<div class='goods_img'>
+						<a class='goods_img_show' href='group.html'>
+							<img src="{{newpro.src || img/load_wait}}" />
+						</a>
+					</div>
+					<div class='goods_info'>
+						<div class='pro_name'>
+							<a>
+								<span ng-bind="newpro.discount"></span>{{newpro.name}}
+							</a>
+						</div>
+						<div class='price_info clearfix'>
+							<p class='pinfo_num'>
+								<i>￥</i>
+								<span ng-bind="newpro.price"></span>
+								<del>￥{{newpro.Original_price}}</del>
+							</p>
+							<p class='pinfo_buy'>
+								<a class='put-cart embox'>加入购物车</a>
+							</p>
+						</div>
+						<div class='sale_tip clearfix'>
+							<p class='sale_tip_time' endtime="">
+								<i class='_downClock'>距团购结束</i>
+							</p>
+							<p class='sale_tip_count'>
+								<span ng-bind="newpro.people"></span>人已购买</p>
+							</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

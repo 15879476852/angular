@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.js"></script>
+	</head>
+	<body ng-controller="bodyCtrl">
+		<ul>
+			<li ng-repeat="user in users ">
+				姓名：{{user.name}} 年龄：{{user.age}}
+			</li>
+			<hr />
+			<li ng-repeat="(key,value) in users">
+				姓名：{{key}} 年龄：{{value}}
+			</li>
+			<hr />
+			<li ng-repeat="user in users track by user.id">
+				姓名：{{user.name}} 年龄：{{user.age}}
+			</li>
+			<!--<hr />
+			<li ng-repeat="user in users track by user.id">
+				姓名：{{user.name}} 年龄：{{user.age}}
+			</li>-->
+		</ul>
+		<button ng-click="click()">显示/隐藏</button>
+		<div ng-show="Flag">显示</div>
+		<div ng-hide="Flag">隐藏</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var app = angular.module("myapp",[]);
+	app.controller("bodyCtrl",function($scope){
+		$scope.users=[
+		{id:11,name:"ffff",age:312},
+		{id:12,name:"ff12ff",age:332},
+		{id:13,name:"ff3ff",age:323},
+		{id:14,name:"ff4ff",age:332},
+		{id:15,name:"ff5ff",age:324},
+		{id:16,name:"ff6ff",age:326},
+		{id:17,name:"ff7ff",age:832},
+		{id:18,name:"fff8f",age:632}
+		]
+		$scope.page={
+			size: 3,
+			start: 3
+		}
+		$scope.Flag = true;
+		$scope.click= function(){
+			$scope.Flag = !$scope.Flag;
+		}
+	})
+</script>

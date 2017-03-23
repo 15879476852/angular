@@ -1,0 +1,52 @@
+var app = angular.module("myapp",["ui.router"]);
+app.config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+	$stateProvider.state("index",{
+		url:"/",
+		templateUrl:"tpls/homepage.html"
+	}).state("computer",{
+		url:"/computer",
+		templateUrl:"tpls/computer.html",
+		controller:function($state){
+			$state.go("computer.html5")
+		}
+	}).state("computer.html5",{
+		url:"/html5",
+		template:"<div>html5<div>"
+	}).state("computer.java",{
+		url:"/html5",
+		template:"<div>java<div>"
+	}).state("computer.c",{
+		url:"/html5",
+		template:"<div>C语言<div>"
+	}).state("computer.python",{
+		url:"/html5",
+		template:"<div>python<div>"
+	}).state("book",{
+		url:"/:type",
+		views:{
+			"":{
+				templateUrl:"tpls/book.html",
+				controller:function($scope,$stateParams,$http){
+					if($stateParams.type){
+						$http.get("jsons/books"+$stateParams.type+".json")
+						.success(function(data){
+							$scope.books=data
+						})
+					}
+				}
+			},
+			"booktype@book":{
+				templateUrl:"tpls/bookType.html"
+			},
+			"bookgrid@book":{
+				templateUrl:"tpls/bookGrid.html"
+			}
+		}
+		
+	}).state("other",{
+		url:"/other",
+		templateUrl:"tpls/other.html"
+	})
+	$urlRouterProvider.otherwise('/')
+}])
+angular.bootstrap(document,['myapp']);

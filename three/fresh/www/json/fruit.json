@@ -1,0 +1,114 @@
+[
+	{
+		"id":"01",
+		"src":"images/fruitImage/1.jpg",		
+		"title":"佳沛新西兰有机绿奇异果",		
+		"price":"￥78"	
+		},
+	{
+		"id":"02",
+		"src":"images/fruitImage/2.jpg",		
+		"title":"墨西哥牛油果",		
+		"price":"￥69"
+	
+	},
+	{
+		"id":"03",
+		"src":"images/fruitImage/3.jpg",		
+		"title":"越南火龙果(MINI)",	
+		"price":"￥29"
+	
+	},
+	{
+		"id":"04",
+		"src":"images/fruitImage/4.jpg",		
+		"title":"越南火龙果",	
+		"price":"￥25"
+	
+	},
+	{
+		"id":"05",
+		"src":"images/fruitImage/5.jpg",		
+		"title":"越南火龙果",	
+		"price":"￥59"
+	
+	},
+	{
+		"id":"06",
+		"src":"images/fruitImage/6.jpg",		
+		"title":"菲律宾凤梨",	
+		"price":"￥45"
+	
+	},
+	{
+		"id":"07",
+		"src":"images/fruitImage/7.jpg",		
+		"title":"特大佳沛新西兰绿奇异果",	
+		"price":"￥49"
+	
+	},
+	{
+		"id":"08",
+		"src":"images/fruitImage/8.jpg",		
+		"title":"佳沛新西兰有机绿奇异果",		
+		"price":"￥78"
+	
+	},
+	{
+		"id":"09",
+		"src":"images/fruitImage/9.jpg",		
+		"title":"新西兰皇后红玫瑰苹果",		
+		"price":"￥118"
+	
+	},
+	{
+		"id":"10",
+		"src":"images/fruitImage/10.jpg",		
+		"title":"菲律宾香蕉",		
+		"price":"￥38"
+	
+	},
+	{
+		"id":"11",
+		"src":"images/fruitImage/11.jpg",		
+		"title":"智利青苹果",		
+		"price":"￥18"
+	
+	},
+	{
+		"id":"12",
+		"src":"images/fruitImage/12.jpg",		
+		"title":"台湾麻豆文旦",		
+		"price":"￥45"
+	
+	},
+	{
+		"id":"13",
+		"src":"images/fruitImage/13.jpg",		
+		"title":"澳大利亚脐橙",		
+		"price":"￥88"
+	
+	},
+	{
+		"id":"14",
+		"src":"images/fruitImage/14.jpg",		
+		"title":"南非葡萄柚",		
+		"price":"￥29"
+	
+	},
+	{
+		"id":"15",
+		"src":"images/fruitImage/15.jpg",		
+		"title":"新疆西州蜜瓜",		
+		"price":"￥39"
+	
+	},
+	{
+		"id":"16",
+		"src":"images/fruitImage/16.jpg",		
+		"title":"优选蒙自石榴",		
+		"price":"￥29"
+	
+	}
+
+]

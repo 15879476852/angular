@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="body">
+		<div>自定义标签</div>
+		<is-ok>laozi</is-ok>
+		<div is-ok>laozi</div>
+		<div class="is-ok">laozi</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module("myapp",[]);
+	app.controller("body",["$scope","$timeout","$interval",function($scope,$timeout,$interval){
+		
+	}])
+	app.directive("isOk",function(){
+		return{
+			restrict:"EAC",
+			template:"<div><span ng-transclude></span><input type='text' ng-model='val' />{{val}}isok</div>",
+			replace:true,//是否保留外面自定义的标签
+			transclude:true,//transclude是接受原标签里 的内容
+			controller:function($scope){
+				
+			},
+//			compile : function(){
+//				console.log(aaaaa)
+//				return{
+//					pro:function(){
+//						console.log(bbbb)
+//					},
+//					post : function(){
+//						console.log(ccc)
+//					}
+//				}
+//			},
+			link : function($scope,element,attrs){
+				$scope.name = "asfa";
+				console.log(element)
+				console.log(attrs)
+			}
+		}
+	})
+</script>

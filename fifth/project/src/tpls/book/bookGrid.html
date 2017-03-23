@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body >
+			<table class="table table-hover table-bordered">
+				<tr>
+					<th>序号</th><th>书名</th><th>作者</th><th>发布时间</th><th>价格</th>
+				</tr>
+				<tr id="book.bookId" ng-repeat="book in books track by book.bookId">
+					<td ng-bind="book.index"></td>
+					<td ng-bind="book.name"></td>
+					<td ng-bind="book.author"></td>
+					<td ng-bind="book.pubTime"></td>
+					<td ng-bind="book.price"></td>
+				</tr>
+			</table>
+	</body>
+</html>

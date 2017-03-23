@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.js"></script>
+	</head>
+	<body ng-controller="bodyCtrl">
+		<input type="text" ng-model="name"/>
+		hello {{name}}
+		<input type="text" ng-model="price"/>
+		<input type="text" ng-model="num"/>
+		<input type="text" ng-model="sum"/>
+		<div>{{price}}</div>
+		<div>{{num}}</div>
+		<div>{{sum}}</div>
+		<div>{{price*num}}</div>
+	</body>
+	
+</html>
+<script type="text/javascript">
+	var app = angular.module("myapp",[]);
+	app.controller("bodyCtrl",function($scope){
+		$scope.name = "fasdf";
+		$scope.price=120;
+		$scope.num=34;
+		$scope.sum=$scope.price*$scope.num;
+//		
+	})
+</script>

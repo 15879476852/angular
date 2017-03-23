@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<style type="text/css">
+			.table {
+				margin-left: 20px;
+				text-align: center;
+				margin-top: 20px;
+				border: 1px solid #E5E5E5;
+				color: #333;
+			}
+			
+			th {
+				text-align: center;
+			}
+			
+			.page {
+				text-align: center;
+			}
+			#int{
+				margin-left: 20px;
+				width: 270px;
+				
+			}
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.header_center {
+				margin: 25px 0 0 -35px;
+			}
+			
+			.header_center input {
+				line-height: 28px;
+				padding: 5px 0;
+				height: 40px;
+				background: #fff;
+				border: 2px #00c8ff solid;
+				padding-left: 10px;
+				color: #6c6c6c;
+				width: 318px;
+				margin-bottom: 5px;
+			}
+			
+			.header_center .btn {
+				border: 0;
+				background: #00c8ff;
+				width: 88px;
+				height: 40px;
+				color: #fff;
+				font-size: 16px;
+				cursor: pointer;
+				font-weight: bold;
+				letter-spacing: 2px;
+				text-align: center;
+				line-height: 34px;
+				margin-left: -5px;
+			}
+			.hotkey li {
+				margin-right: 6px;
+				font-size: 12px;
+			}
+			
+			.hotkey li a {
+				color: #6c6c6c;
+				margin: 0 9px;
+			}
+			
+			.hotkey li i {
+				font-style: normal;
+				width: 1px;
+				background: #c4c4c4;
+				height: 10px;
+				float: left;
+				margin-top: 4px;
+			}
+			button{
+				background:#00c8ff ;
+				border: 1px solid #00c8ff;
+				color: #FFF;
+				margin: 0 10px;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="bodyCtrl">
+		<header ng-include="'header.html'"></header>
+		<div ng-include="'main.html'"></div>
+		<footer ng-include="'footer.html'"></footer>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/ng-template" id="main.html">
+		<div class="main container">
+			<input type="text" name="" id="int" value="" ng-model="text"/>
+			<button ng-click="sort('age')">按照年龄</button>
+			<button ng-click="sort('num')">按照序号</button>
+			<button ng-click="sort('name')">按照姓名</button>
+			<table class="table" border="1" cellspacing="10" cellpadding="10">
+				<tr>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>手机号</th>
+					<th>性别</th>
+					<th>年龄</th>
+				</tr>
+				<tr ng-repeat="user in users | orderBy:type:desc | filter:text | limitTo:page.size:page.start track by user.num">
+					<td>{{user.num}}</td>
+					<td>{{user.name}}</td>
+					<td>{{user.tel}}</td>
+					<td>{{user.sex}}</td>
+					<td>{{user.age}}</td>
+				</tr>
+			</table>
+		</div>
+		<nav aria-label="" class="page">
+			<ul class="pagination">
+				<li class="disabled">
+					<span>
+        <span aria-hidden="true">&laquo;</span>
+					</span>
+				</li>
+				<li ng-repeat="user in users | limitTo:num1:0" ng-class="{true:'active',false:''}[isActive]">
+					<span ng-click="acitve(user.num)">{{user.num}} <span class="sr-only">(current)</span></span>
+				</li>
+				<li>
+					<span>
+        				<span aria-hidden="true">&raquo;</span>
+					</span>
+				</li>
+			</ul>
+		</nav>
+	</script>
+
+</html>
+<script type="text/javascript">
+	var app = angular.module("myapp", []);
+	app.controller("bodyCtrl", function($scope, $http) {
+		$http.get("json/users.json").success(
+			function(data) {
+				console.log(data);
+				$scope.users = data.users;
+				$scope.num1 = ($scope.users.length) / 10;
+
+				
+			});
+		$scope.sort=function(type){
+			$scope.type = type;
+			$scope.desc = !$scope.desc;
+		}
+		$scope.page={
+			size :10,
+			start:$scope.start || 0
+		}
+		$scope.acitve = function(num){
+			$scope.start = (num-1)*10;
+			$scope.page={
+				size :10,
+				start:$scope.start
+			}
+			$scope.isActive = false;
+			this.isActive = !this.isActive;
+		}
+		
+	})
+</script>

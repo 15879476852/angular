@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.js"></script>
+	</head>
+	<body>
+	<div ng-controller="CounterCtrl" ng-init="counter=1">
+		  <span ng-bind="counter"></span>
+		  <button ng-click="counter+=1">increase</button>
+	</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var app = angular.module("myapp",[]);
+	app.controller("CounterCtrl",function($scope){
+		function CounterCtrl($scope) {
+		  $scope.counter = 1;
+		}
+	})
+</script>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+	</head>
+	<style type="text/css">
+		.table {
+			margin-left: 20px;
+			text-align: center;
+			margin-top: 20px;
+			border: 1px solid #E5E5E5;
+			color: #333;
+		}
+		
+		th {
+			text-align: center;
+		}
+		
+		.page {
+			text-align: center;
+		}
+		
+		#int {
+			margin-left: 20px;
+			width: 270px;
+		}
+		
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.header_center {
+			margin: 25px 0 0 -35px;
+		}
+		
+		.header_center input {
+			line-height: 28px;
+			padding: 5px 0;
+			height: 40px;
+			background: #fff;
+			border: 2px #00c8ff solid;
+			padding-left: 10px;
+			color: #6c6c6c;
+			width: 318px;
+			margin-bottom: 5px;
+		}
+		
+		.header_center .btn {
+			border: 0;
+			background: #00c8ff;
+			width: 88px;
+			height: 40px;
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+			font-weight: bold;
+			letter-spacing: 2px;
+			text-align: center;
+			line-height: 34px;
+			margin-left: -5px;
+		}
+		
+		.hotkey li {
+			margin-right: 6px;
+			font-size: 12px;
+		}
+		
+		.hotkey li a {
+			color: #6c6c6c;
+			margin: 0 9px;
+		}
+		
+		.hotkey li i {
+			font-style: normal;
+			width: 1px;
+			background: #c4c4c4;
+			height: 10px;
+			float: left;
+			margin-top: 4px;
+		}
+		
+		button {
+			background: #00c8ff;
+			border: 1px solid #00c8ff;
+			color: #FFF;
+			margin: 0 10px;
+		}
+	</style>
+	<body ng-app="app">
+		<div ng-include="'tpls/header.html'"></div>
+		<div class="container">
+			<div ng-view></div>
+		</div>
+		<div ng-include="'tpls/footer.html'"></div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/angular-route.js"></script>
+<script type="text/javascript" src="myjs/route.js"></script>
+<script type="text/javascript" src="myjs/controllers.js"></script>

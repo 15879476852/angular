@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="bodyCtrl">
+		姓名:{{name}}
+		年龄:{{age}}
+		<div ng-controller="div1Ctrl">
+			姓名:{{name}}
+			年龄:{{age}}
+			姓名:{{name3}}
+			年龄:{{age3}}
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript">
+	var app=angular.module("app",[],function($provide){
+			$provide.provider("provder3",function(){
+				this.$get=function(){
+					return {
+						pro:function(){
+							return {name:"yousinider",age:21}
+						},
+						msg:"provider3 msg provide"
+					}
+				}
+			})
+		});
+	app.provider("provider1",function(){
+		this.$get=function(){
+			return {
+				pro:function(){
+					return{name:"nidie",age:21}
+				},
+				msg:"provider1 msg"
+			}
+		}
+	}).controller("bodyCtrl",function($scope,provider1){
+		$scope.name = provider1.pro().name;
+		$scope.age = provider1.pro().age;
+	})
+	app.config(function($provide){
+		$provide.provider("provider2",function(){
+			this.$get=function(){
+				return {
+					pro:function(){
+						return {name:"haisinider",age:21}
+					},
+					msg:"provider2 msg provide"
+				}
+			}
+		})
+	})
+	app.controller("div1Ctrl",function($scope,provider2){
+		$scope.name = provider2.pro().name;
+		$scope.age = provider2.pro().age;
+	})
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-controller="body">
+		{{name}}
+	</body>
+</html>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module("myapp",[]);
+	app.controller("body",["$scope","$timeout","$interval",function($scope,$timeout,$interval){
+		var time = $timeout(function(){
+			console.log("123");
+			return "123";
+		},1000);
+		time.then(function(data){
+			$timeout.cancel(time);
+			console.log(data)
+		})
+		var num = 0;
+		$interval(function(){
+			$scope.name = num++;
+			
+		},1,10001);
+	}])
+</script>

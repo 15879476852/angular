@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+	</head>
+	<style type="text/css">
+		.form{
+			margin-top: 50px;
+		}
+		.btn{
+			clear: both;
+		}
+	</style>
+	<body ng-controller="bodyCtrl">
+		<div class="container">
+			<form class="form-inline col-md-5 col-md-offset-4 form" name="form" ng-submit="sub(form.$valid)">
+				<div class="form-group has-success has-feedback">
+					<label class="control-label " for="inputSuccess">用户名:</label>
+					<input type="text" class="form-control" name="text" ng-model="user.name" required>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.text.$valid && form.text.$dirty"></span>
+				</div>
+				<div class="form-group has-success has-feedback">
+					<label class="control-label " for="inputSuccess">密码:</label>
+					<input type="password" class="form-control" name="pwd" ng-model="user.pwd" required>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.pwd.$valid && form.pwd.$dirty"></span>
+				</div>
+				<div class="form-group has-success has-feedback">
+					<label class="control-label " for="inputSuccess">重复密码:</label>
+					<input type="password" class="form-control" name="repwd" ng-model="user.repwd" required>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="user.pwd==user.repwd && form.repwd.$dirty"></span>
+				</div>
+				<div class="form-group has-success has-feedback">
+					<label class="control-label " for="inputSuccess">电话:</label>
+					<input type="tel" class="form-control" name="tel" ng-pattern="/^1[34578]\d{9}$/" ng-model="user.tel" required>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.tel.$valid && form.tel.$dirty"></span>
+				</div>
+				<div class="form-group has-success has-feedback">
+					<label class="control-label " for="inputSuccess">年龄:</label>
+					<input type="tel" class="form-control" name="age" ng-pattern="/^\d+$/" ng-model="user.age" required>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.age.$valid && form.age.$dirty"></span>
+				</div>
+				<div class="form-group has-success has-feedback">
+					<label class="control-label " for="inputSuccess">邮箱:</label>
+					<input type="email" class="form-control" name="email" ng-model="user.email" required>
+					<span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.email.$valid && form.email.$dirty"></span>
+				</div>
+				<div class=" btn">
+					<button type="submit" class="btn btn-lg btn-primary col-sm-offset-2" ng-disabled="form.$invalid">提交</button>
+				</div>
+				
+			</form>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript">
+	var app = angular.module("myapp", []);
+	app.controller("bodyCtrl", function($scope,$http) {
+		$scope.isok=false;
+		$scope.sub=function(vaild){
+			$http({
+				method:"get",
+				url:"user.php",
+				params:{
+					"user":$scope.user
+				},
+				responseType:"json"				
+			}).success(function(data){
+				console.log(data)
+//				if(data.state == "success"){
+//					alert("注册成功");
+//					$scope.$parent.exist = false;
+////					$scope.$parent.shade = false;
+//				}else{
+//					alert(data.errMsg);
+//				}				
+			})
+		}
+	})
+</script>

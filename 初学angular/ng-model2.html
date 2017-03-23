@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.js"></script>
+	</head>
+	<body ng-controller="bodyCtrl" ng-init="pepole={name:'zhangsan',age:19,sex:'man',height:170}">
+		<div ng-controller="man1Ctrl">
+			<p ng-bind="name"></p>{{pepole.name}}没p
+			<p ng-bind="age"></p>{{pepole.age}}没p
+			<p ng-bind="sex"></p>{{pepole.sex}}没p
+			<p ng-bind="height"></p>{{pepole.height}}没p<hr />
+		</div>
+		<div ng-controller="man2Ctrl" ng-init="arr=[1,2,'list',4,'wangw',21,12,3]">
+			<hr /><p ng-bind="name"></p>
+			<p ng-bind="arr[2]"></p>
+			<p ng-bind="arr[3]"></p>
+			<p ng-bind="arr[4]"></p><hr />
+		</div>
+		<div ng-controller="man3Ctrl">
+			<hr /><p ng-bind="pepole.name"></p>
+			<p ng-bind="pepole.age"></p>
+			<p ng-bind="pepole.sex"></p>
+			<p ng-bind="pepole.height"></p>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var app = angular.module("myapp",[]);
+	app.controller("bodyCtrl",function($scope){
+		$scope.name = "lisi";
+		$scope.pepole = {
+			name:"asdfas",
+			age:21,
+			sex:"sdfsfd",
+			height: 3232
+		};
+	})
+	app.controller("man1Ctrl",function($scope){
+		$scope.pepole = {
+			name:"asdfas",
+			age:21,
+			sex:"sdfsfd",
+			height: 3232
+		};
+		
+	})
+	app.controller("man2Ctrl",function($scope){
+
+	})
+	app.controller("man3Ctrl",function($scope){
+		$scope.pepole = {
+			name:"asdfas",
+			age:21,
+			sex:"sdfsfd",
+			height: 3232
+		};
+	})
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.bg{
+				border: 1px solid #0000FF;
+				height: 400px;
+				font-size: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div ng-include="'tpls/side.html'" class="col-lg-3"></div>
+				<div class="col-lg-8 bg">
+					<div ui-view></div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>
